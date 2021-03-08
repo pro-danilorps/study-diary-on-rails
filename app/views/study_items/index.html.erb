@@ -1,0 +1,24 @@
+<h1>Diário de Estudos</h1>
+
+<table>
+  <tr>
+  <th>ID</th>
+  <th>Título</th>
+  <th>Categoria</th>
+  <th>Ações</th>
+  </tr>
+  <% @study_items.each do |item| %>
+  <tr>
+    <td><%= item.id %></td>
+    <td><%= item.title %></td>
+    <td><%= item.category %></td>
+    <td><%= link_to "Editar", edit_study_item_path(item) %>
+     | 
+    <%= link_to "Deletar", study_item_path(item), method: :delete,
+        data: { confirm: "Tem certeza disso?" } %>
+    </td>
+  </tr>
+  <% end %>
+</table>
+
+<%= link_to "Novo Item", new_study_item_path %>
